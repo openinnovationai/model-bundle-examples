@@ -1,0 +1,7 @@
+model_framework: custom
+
+python_version: py39
+requirements:
+- transformers==4.39.0
+- torch==2.2.1
+- torchvision==0.17.1

@@ -1,0 +1,8 @@
+model_framework: custom
+
+python_version: py39
+
+requirements:
+- pytorch-ignite==0.4.13
+- torch==2.2.1
+- torchvision==0.17.1

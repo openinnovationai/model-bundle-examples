@@ -1,0 +1,6 @@
+model_framework: custom
+
+python_version: py39
+
+requirements:
+- fastai==2.7.14
