@@ -23,7 +23,7 @@ class Model:
         pkl_filepath = os.path.join(model_binary_dir_path, "data")
         logging.info(f"Loading model file {pkl_filepath}")
         self._model = AutoModelForSequenceClassification.from_pretrained(
-            "hakonmh/sentiment-xdistil-uncased"
+            "finiteautomata/bertweet-base-sentiment-analysis"
         )
         self._tokenizer = AutoTokenizer.from_pretrained(pkl_filepath)
 
