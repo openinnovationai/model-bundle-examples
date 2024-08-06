@@ -12,6 +12,7 @@ Each folder has a Model Bundle created using a specific library.
 
 To build a bundle for a specific example:
 - Move to the example folder
+- Install the requirements: `pip install -r requirements.txt`
 - Run the `create_bundle.py` script
 - Upload on the OpenInnovationAI platform
   - the `config.yaml` configuration file
