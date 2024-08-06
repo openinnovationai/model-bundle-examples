@@ -18,3 +18,5 @@ To build a bundle for a specific example:
   - the `config.yaml` configuration file
   - the `model/model.py` model file
   - the `data/` folder with the model weights
+
+![Sample](docs/img/sample_bundle.png)
