@@ -50,7 +50,9 @@ class Model:
         self._model.eval()
 
     def predict(self, model_input: Any) -> Any:
-        assert self._model is not None
+        if self._model is None:
+            raise RuntimeError("Model not loaded")
+
         data = np.asarray(
             model_input, dtype=np.float32
         )  # Convert the REST input to a numpy array

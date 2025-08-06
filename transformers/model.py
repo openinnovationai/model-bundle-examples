@@ -28,8 +28,12 @@ class Model:
         self._tokenizer = AutoTokenizer.from_pretrained(pkl_filepath)
 
     def predict(self, model_input: Any) -> Any:
+        if self._model is None:
+            raise RuntimeError("Model not loaded")
+
         if isinstance(model_input, list):
             model_input = model_input[0]
+
         inputs = self._tokenizer(
             model_input,
             return_tensors="pt",
