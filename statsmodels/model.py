@@ -1,7 +1,6 @@
-from typing import Any, Optional
-import os
-import numpy as np
 import logging
+import os
+from typing import Any, Optional
 
 import statsmodels.api as sm
 
@@ -23,7 +22,9 @@ class Model:
         self._model = sm.load(pkl_filepath)
 
     def predict(self, model_input: Any) -> Any:
-        assert self._model is not None
+        if self._model is None:
+            raise ValueError("Model not loaded")
+
         result = self._model.predict(model_input)
         predictions = result.tolist()  # Convert the model output to a Python list
         return {"predictions": predictions}
