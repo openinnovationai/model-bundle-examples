@@ -1,7 +1,8 @@
-from typing import Any, Optional
-import os
-import xgboost as xgb
 import logging
+import os
+from typing import Any, Optional
+
+import xgboost as xgb
 import numpy as np
 
 
@@ -23,7 +24,9 @@ class Model:
         self._model.load_model(filepath)
 
     def predict(self, model_input: Any) -> Any:
-        assert self._model is not None
+        if self._model is None:
+            raise ValueError("Model not loaded")
+
         input_xgb = xgb.DMatrix(np.asarray(model_input))
         res = self._model.predict(input_xgb)
         return {"predictions": res.tolist()}
