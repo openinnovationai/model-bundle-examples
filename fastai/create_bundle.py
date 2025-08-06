@@ -1,3 +1,5 @@
+from pathlib import Path
+
 from fastai.vision.all import (
     URLs,
     untar_data,
@@ -8,7 +10,7 @@ from fastai.vision.all import (
 )
 
 if __name__ == "__main__":
-    path = untar_data(URLs.CIFAR)
+    path = untar_data(URLs.CIFAR, data=Path.cwd() / "data")
     dls = ImageDataLoaders.from_folder(path, train="train", valid="test")
 
     learn = vision_learner(dls, resnet18, metrics=accuracy)
@@ -16,6 +18,4 @@ if __name__ == "__main__":
     # Train the model
     learn.fit_one_cycle(1, lr_max=1e-3)
 
-    learn.export(
-        "data/model.fastai",
-    )
+    learn.export("../model.fastai")

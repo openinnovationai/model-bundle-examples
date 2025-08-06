@@ -1,9 +1,9 @@
-from typing import Any, Optional
-import os
-import numpy as np
 import logging
+import os
+from typing import Any, Optional
+
+import numpy as np
 from fastai.learner import load_learner, Learner
-from PIL import Image
 
 
 class Model:
@@ -23,9 +23,10 @@ class Model:
         self._model = load_learner(filepath)
 
     def predict(self, model_input: Any) -> Any:
-        assert self._model is not None
-        x = np.asarray(
-            model_input, dtype=np.uint8
-        )  # Convert the REST input to a numpy array
-        label, _, _ = self._model.predict(x)
+        if self._model is None:
+            raise ValueError("Model not loaded")
+        # Convert the REST input to a numpy array
+        x = np.asarray(model_input, dtype=np.uint8)
+        prediction = self._model.predict(x)
+        label = prediction[0]
         return {"predictions": label}
