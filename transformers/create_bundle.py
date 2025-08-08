@@ -25,5 +25,6 @@ if __name__ == "__main__":
 
     expected_label = 0
 
-    model.save_pretrained("data/")
-    tokenizer.save_pretrained("data/")
+    model.save_pretrained("./")
+    tokenizer.save_pretrained("./")
+    print("Model weights are saved into this folder")

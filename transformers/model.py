@@ -20,12 +20,11 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        pkl_filepath = os.path.join(model_binary_dir_path, "data")
-        logging.info(f"Loading model file {pkl_filepath}")
+        logging.info(f"Loading model file {model_binary_dir_path}")
         self._model = AutoModelForSequenceClassification.from_pretrained(
             "finiteautomata/bertweet-base-sentiment-analysis"
         )
-        self._tokenizer = AutoTokenizer.from_pretrained(pkl_filepath)
+        self._tokenizer = AutoTokenizer.from_pretrained(model_binary_dir_path)
 
     def predict(self, model_input: Any) -> Any:
         if self._model is None:
