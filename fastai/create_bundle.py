@@ -18,4 +18,5 @@ if __name__ == "__main__":
     # Train the model
     learn.fit_one_cycle(1, lr_max=1e-3)
 
-    learn.export("../model.fastai")
+    learn.export("../../model.fastai")
+    print("Model weights are saved into ./model.fastai")

@@ -18,7 +18,7 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        filepath = os.path.join(model_binary_dir_path, "data", "model.fastai")
+        filepath = os.path.join(model_binary_dir_path, "model.fastai")
         logging.info(f"Loading model file {filepath}")
         self._model = load_learner(filepath)
 
