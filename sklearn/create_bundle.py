@@ -12,5 +12,5 @@ if __name__ == "__main__":
     rf = RandomForestRegressor(n_estimators=10, max_depth=6, max_features=3)
     rf.fit(X_train, y_train)
 
-    joblib.dump(rf, "data/model.joblib")
-    print("Model weights saved into data/model.joblib")
+    joblib.dump(rf, "model.joblib")
+    print("Model weights saved into ./model.joblib")

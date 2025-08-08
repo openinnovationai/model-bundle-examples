@@ -19,7 +19,7 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        joblib_filepath = os.path.join(model_binary_dir_path, "data", "model.joblib")
+        joblib_filepath = os.path.join(model_binary_dir_path, "model.joblib")
         logging.info(f"Loading model file {joblib_filepath}")
         self._model = joblib.load(joblib_filepath)
 
