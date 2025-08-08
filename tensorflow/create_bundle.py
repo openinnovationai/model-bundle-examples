@@ -22,5 +22,5 @@ if __name__ == "__main__":
 
     model.fit(x_train, y_train, epochs=1)
 
-    model.save_weights("data/model_tf.weights.h5")
-    print("Model weights saved into data/model_tf.weights.h5")
+    model.save_weights("model_tf.weights.h5")
+    print("Model weights saved into ./model_tf.weights.h5")
