@@ -18,10 +18,10 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        filepath = os.path.join(model_binary_dir_path, "data", "booster.json")
-        logging.info(f"Loading model file {filepath}")
+        weights_filepath = os.path.join(model_binary_dir_path, "booster.json")
+        logging.info(f"Loading model file {weights_filepath}")
         self._model = xgb.Booster()
-        self._model.load_model(filepath)
+        self._model.load_model(weights_filepath)
 
     def predict(self, model_input: Any) -> Any:
         if self._model is None:
