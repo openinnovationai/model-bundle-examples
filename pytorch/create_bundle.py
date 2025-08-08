@@ -86,7 +86,5 @@ if __name__ == "__main__":
     pbar.attach(trainer, ["loss"])
     trainer.run(train_loader, max_epochs=epochs)
 
-    torch.save(
-        model.state_dict(),
-        "data/model.pth",
-    )
+    torch.save(model.state_dict(), "model.pth")
+    print("Model weights are saved into ./model.pth")

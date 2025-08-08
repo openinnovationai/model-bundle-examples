@@ -43,7 +43,7 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        filepath = os.path.join(model_binary_dir_path, "data", "model.pth")
+        filepath = os.path.join(model_binary_dir_path, "model.pth")
         logging.info(f"Loading model file {filepath}")
         self._model = CNN()
         self._model.load_state_dict(torch.load(filepath))
