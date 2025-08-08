@@ -17,7 +17,7 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        pkl_filepath = os.path.join(model_binary_dir_path, "data", "model.pkl")
+        pkl_filepath = os.path.join(model_binary_dir_path, "model.pkl")
         logging.info(f"Loading model file {pkl_filepath}")
         self._model = sm.load(pkl_filepath)
 

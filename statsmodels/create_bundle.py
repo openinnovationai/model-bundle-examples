@@ -23,4 +23,5 @@ if __name__ == "__main__":
     # Fit the model to the data
     model_fit = model.fit()
 
-    model_fit.save("data/model.pkl")
+    model_fit.save("model.pkl")
+    print("Model weights are saved into ./model.pkl")
