@@ -1,5 +1,0 @@
-model_framework: custom
-
-python_version: py39
-requirements:
-- xgboost==2.0.3

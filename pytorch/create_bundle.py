@@ -1,12 +1,12 @@
 import torch
-from torch import nn, optim
 import torch.nn.functional as F
+from ignite.engine import Events, create_supervised_trainer, create_supervised_evaluator
+from ignite.handlers import EarlyStopping
+from ignite.handlers.tqdm_logger import ProgressBar
+from ignite.metrics import Accuracy, Loss, ConfusionMatrix, RunningAverage
+from torch import nn, optim
 from torch.utils.data import DataLoader
 from torchvision import datasets, transforms
-from ignite.engine import Events, create_supervised_trainer, create_supervised_evaluator
-from ignite.metrics import Accuracy, Loss, ConfusionMatrix, RunningAverage
-from ignite.handlers import EarlyStopping
-from ignite.contrib.handlers import ProgressBar
 
 
 # CNN model class
@@ -33,7 +33,6 @@ class CNN(nn.Module):
 
 
 if __name__ == "__main__":
-
     # Transform to normalize the data
     transform = transforms.Compose(
         [transforms.ToTensor(), transforms.Normalize((0.5,), (0.5,))]
@@ -87,7 +86,5 @@ if __name__ == "__main__":
     pbar.attach(trainer, ["loss"])
     trainer.run(train_loader, max_epochs=epochs)
 
-    torch.save(
-        model.state_dict(),
-        "data/model.pkl",
-    )
+    torch.save(model.state_dict(), "model.pth")
+    print("Model weights are saved into ./model.pth")

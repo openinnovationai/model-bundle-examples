@@ -1,18 +1,16 @@
-from sklearn.model_selection import train_test_split
+import joblib
 from sklearn.datasets import load_diabetes
 from sklearn.ensemble import RandomForestRegressor
+from sklearn.model_selection import train_test_split
 
-import joblib
 
 if __name__ == "__main__":
     # Load the dataset and split it into training and testing sets.
-    db = load_diabetes()
-    X_train, X_test, y_train, y_test = train_test_split(db.data, db.target)
-
-    print(X_train[0])
-    print(y_train[0])
+    X, y = load_diabetes(return_X_y=True)
+    X_train, _, y_train, _ = train_test_split(X, y)
 
     rf = RandomForestRegressor(n_estimators=10, max_depth=6, max_features=3)
     rf.fit(X_train, y_train)
 
-    joblib.dump(rf, "data/model.joblib")
+    joblib.dump(rf, "model.joblib")
+    print("Model weights saved into ./model.joblib")

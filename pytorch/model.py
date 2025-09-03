@@ -1,10 +1,10 @@
-from typing import Any, Optional
-import os
-import numpy as np
 import logging
+import os
+from typing import Any, Optional
 
+import numpy as np
 import torch
-from torch import nn
+import torch.nn as nn
 import torch.nn.functional as F
 
 
@@ -43,14 +43,16 @@ class Model:
         model_binary_dir_path = os.path.join(
             str(self._data_dir), str(self._model_binary_dir)
         )
-        filepath = os.path.join(model_binary_dir_path, "data", "model.pkl")
+        filepath = os.path.join(model_binary_dir_path, "model.pth")
         logging.info(f"Loading model file {filepath}")
         self._model = CNN()
         self._model.load_state_dict(torch.load(filepath))
         self._model.eval()
 
     def predict(self, model_input: Any) -> Any:
-        assert self._model is not None
+        if self._model is None:
+            raise RuntimeError("Model not loaded")
+
         data = np.asarray(
             model_input, dtype=np.float32
         )  # Convert the REST input to a numpy array
