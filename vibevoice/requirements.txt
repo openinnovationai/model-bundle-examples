@@ -1,0 +1,6 @@
+accelerate>=1.6.0
+numpy<2
+safetensors>=0.6.2
+torch>=2.8.0
+transformers>=4.51.3
+vibevoice @ git+https://github.com/vibevoice-community/VibeVoice@4954a3f2d66372e3efd2a1726f9b420dc5c183c2
