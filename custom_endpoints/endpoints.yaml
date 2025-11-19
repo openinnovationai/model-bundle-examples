@@ -1,0 +1,7 @@
+endpoints:
+  - endpoint: /custom-get
+    http_method: GET
+    function_name: custom_get
+  - endpoint: /custom-post
+    http_method: POST
+    function_name: custom_post
